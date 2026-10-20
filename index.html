@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Slides</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Markdown Slides</h1>
+    <div class="top-actions">
+      <button id="saveBtn" type="button">Save Slides</button>
+      <button id="presentBtn" type="button">Present</button>
+    </div>
+  </header>
+
+  <main id="editorPage" class="workspace">
+    <section class="editor-panel">
+      <div class="panel-heading">
+        <h2>Markdown Editor</h2>
+        <span>Separate slides with <code>---</code></span>
+      </div>
+      <textarea id="markdownInput" spellcheck="false" aria-label="Markdown editor"></textarea>
+      <p class="hint">Use # for a title, ## for a heading, - for a list, and **text** for bold.</p>
+    </section>
+
+    <section class="preview-panel">
+      <div class="panel-heading">
+        <h2>Live Preview</h2>
+        <span id="previewCounter">1 / 1</span>
+      </div>
+      <div id="previewSlide" class="slide preview-slide"></div>
+      <div class="controls">
+        <button id="previewPrev" type="button" aria-label="Previous slide">← Left</button>
+        <span id="previewCount" class="slide-count">1 / 1</span>
+        <button id="previewNext" type="button" aria-label="Next slide">Right →</button>
+        <button id="previewFullscreen" type="button">⛶ Full Screen</button>
+      </div>
+    </section>
+  </main>
+
+  <main id="presentationPage" class="presentation-page hidden">
+    <div id="presentationSlide" class="slide presentation-slide"></div>
+    <div class="controls presentation-controls">
+      <button id="presentPrev" type="button" aria-label="Previous slide">← Left</button>
+      <span id="presentationCount" class="slide-count">1 / 1</span>
+      <button id="presentNext" type="button" aria-label="Next slide">Right →</button>
+      <button id="presentationFullscreen" type="button">⛶ Full Screen</button>
+      <button id="exitPresent" type="button">Exit Presentation</button>
+    </div>
+  </main>
+
+  <div id="statusMessage" class="status" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

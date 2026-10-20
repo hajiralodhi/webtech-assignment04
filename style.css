@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #202938;
+  background: #f2f5f9;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button {
+  border: 0;
+  border-radius: 7px;
+  padding: 10px 14px;
+  background: #2457d6;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #1743b0;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #dce2ea;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+  gap: 18px;
+  padding: 18px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.editor-panel,
+.preview-panel {
+  min-width: 0;
+  background: white;
+  border: 1px solid #dce2ea;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(24, 39, 75, 0.05);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.panel-heading span,
+.hint {
+  color: #687386;
+  font-size: 12px;
+}
+
+code {
+  background: #edf1f8;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+#markdownInput {
+  display: block;
+  width: 100%;
+  min-height: 65vh;
+  resize: vertical;
+  border: 1px solid #cbd3df;
+  border-radius: 8px;
+  padding: 14px;
+  font: 14px/1.7 Consolas, "Courier New", monospace;
+  color: #172033;
+  background: #fbfcfe;
+  outline-color: #2457d6;
+}
+
+.hint {
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.slide {
+  overflow-wrap: anywhere;
+  background: white;
+  color: #202938;
+  border: 1px solid #e0e5ed;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(24, 39, 75, 0.07);
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.preview-slide {
+  min-height: 52vh;
+}
+
+.slide h1 {
+  font-size: clamp(26px, 3vw, 42px);
+  margin-top: 0;
+  border-bottom: 2px solid #e8edf5;
+  padding-bottom: 14px;
+}
+
+.slide h2 {
+  font-size: clamp(21px, 2.5vw, 30px);
+}
+
+.slide p,
+.slide li {
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.7;
+}
+
+.slide blockquote {
+  margin-left: 0;
+  padding-left: 16px;
+  border-left: 4px solid #2457d6;
+  color: #596579;
+}
+
+.slide pre {
+  overflow-x: auto;
+  padding: 14px;
+  background: #172033;
+  color: #f4f7fb;
+  border-radius: 8px;
+}
+
+.slide img {
+  max-width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 16px;
+}
+
+.slide-count {
+  min-width: 56px;
+  text-align: center;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.presentation-page {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background: #edf1f7;
+  padding: clamp(12px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.presentation-slide {
+  flex: 1;
+  min-height: 0;
+  width: min(1200px, 100%);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+
+.presentation-controls {
+  padding: 0 0 6px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.status {
+  position: fixed;
+  bottom: 12px;
+  right: 14px;
+  background: #172033;
+  color: white;
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.status.show {
+  opacity: 1;
+}
+
+@media (max-width: 850px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  #markdownInput {
+    min-height: 300px;
+  }
+
+  .preview-slide {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .workspace {
+    padding: 10px;
+  }
+
+  .editor-panel,
+  .preview-panel {
+    padding: 12px;
+  }
+}
